@@ -3,7 +3,7 @@
 
 Name:           jutil
 Version:        1.3
-Release:        %mkrel 1.1.1
+Release:        %mkrel 1.1.2
 Epoch:          0
 Summary:        Parameterized collections library for Java
 License:        GPL
@@ -13,8 +13,6 @@ Source0:        http://cscott.net/Projects/JUtil/jutil-latest/jutil-1.3.tar.gz
 BuildRequires:  ant
 BuildRequires:  jpackage-utils >= 0:1.6
 %if %{gcj_support}
-Requires(post): java-gcj-compat
-Requires(postun): java-gcj-compat
 BuildRequires:  java-gcj-compat-devel
 %else
 BuildRequires:  java-devel
