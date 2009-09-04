@@ -3,7 +3,7 @@
 
 Name:           jutil
 Version:        1.3
-Release:        %mkrel 1.1.3
+Release:        %mkrel 1.1.4
 Epoch:          0
 Summary:        Parameterized collections library for Java
 License:        GPL
