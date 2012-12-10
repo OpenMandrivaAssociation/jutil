@@ -3,7 +3,7 @@
 
 Name:           jutil
 Version:        1.3
-Release:        %mkrel 1.1.5
+Release:        %mkrel 1.1.6
 Epoch:          0
 Summary:        Parameterized collections library for Java
 License:        GPL
@@ -18,7 +18,6 @@ BuildRequires:  java-gcj-compat-devel
 BuildRequires:  java-devel
 BuildArch:      noarch
 %endif
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 JUtil is a fully-parameterized (generic) collections library for
@@ -43,14 +42,12 @@ export OPT_JAR_LIST=:
 %{ant} jar javadoc
 
 %install
-%{__rm} -rf %{buildroot}
-
 %{__mkdir_p} %{buildroot}%{_javadir}
 %{__cp} -a %{name}.jar %{buildroot}%{_javadir}/%{name}-%{version}.jar
 (cd %{buildroot}%{_javadir} && for jar in *-%{version}*; do %{__ln_s} ${jar} ${jar/-%{version}/}; done)
 
 %{__mkdir_p} %{buildroot}%{_javadocdir}/%{name}-%{version}
-%{__cp} -a api/*  %{buildroot}%{_javadocdir}/%{name}-%{version}
+cp -pr api/*  %{buildroot}%{_javadocdir}/%{name}-%{version}
 %{__ln_s} %{name}-%{version} %{buildroot}%{_javadocdir}/%{name}
 
 #%{__perl} -pi -e 's/\r$//g' 
@@ -58,9 +55,6 @@ export OPT_JAR_LIST=:
 %if %{gcj_support}
 %{_bindir}/aot-compile-rpm
 %endif
-
-%clean
-%{__rm} -rf %{buildroot}
 
 %if %{gcj_support}
 %post
@@ -85,3 +79,49 @@ export OPT_JAR_LIST=:
 %defattr(0644,root,root,0755)
 %doc %{_javadocdir}/%{name}-%{version}
 %doc %{_javadocdir}/%{name}
+
+
+%changelog
+* Fri Dec 10 2010 Oden Eriksson <oeriksson@mandriva.com> 0:1.3-1.1.5mdv2011.0
++ Revision: 619872
+- the mass rebuild of 2010.0 packages
+
+* Fri Sep 04 2009 Thierry Vignaud <tv@mandriva.org> 0:1.3-1.1.4mdv2010.0
++ Revision: 429653
+- rebuild
+
+* Wed Jan 02 2008 Olivier Blin <oblin@mandriva.com> 0:1.3-1.1.3mdv2009.0
++ Revision: 140829
+- restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Sun Dec 16 2007 Anssi Hannula <anssi@mandriva.org> 0:1.3-1.1.3mdv2008.1
++ Revision: 120958
+- buildrequire java-rpmbuild, i.e. build with icedtea on x86(_64)
+
+* Sat Sep 15 2007 Anssi Hannula <anssi@mandriva.org> 0:1.3-1.1.2mdv2008.0
++ Revision: 87454
+- rebuild to filter out autorequires of GCJ AOT objects
+- remove unnecessary Requires(post) on java-gcj-compat
+
+* Sun Jul 08 2007 David Walluck <walluck@mandriva.org> 0:1.3-1.1.1mdv2008.0
++ Revision: 49710
+- Import jutil
+
+
+
+* Sat Jul 07 2007 David Walluck <walluck@mandriva.org> 0:1.3-1.1.1mdv2008.0
+- release
+
+* Wed Mar 14 2007 David Walluck <walluck@mandriva.org> 0:1.3-1mdv2007.0
+- 1.3
+
+* Wed Mar 14 2007 David Walluck <walluck@mandriva.org> 0:1.1-2mdv2007.0
+- enable gcj support
+- use javadoc macro
+- fix javadoc
+
+* Mon Sep 18 2006 David Walluck <walluck@mandriva.org> 0:1.1-1mdv2007.0
+- release
