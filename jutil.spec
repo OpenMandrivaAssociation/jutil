@@ -2,14 +2,14 @@
 %define gcj_support     1
 
 Name:           jutil
-Version:        1.3
-Release:        %mkrel 1.1.6
+Version:        1.4
+Release:        1
 Epoch:          0
 Summary:        Parameterized collections library for Java
 License:        GPL
 Group:          Development/Java
 URL:            http://cscott.net/Projects/JUtil
-Source0:        http://cscott.net/Projects/JUtil/jutil-latest/jutil-1.3.tar.gz
+Source0:        http://cscott.net/Projects/JUtil/jutil-latest/%{name}-%{version}.tar.gz
 BuildRequires:  ant
 BuildRequires:  java-rpmbuild >= 0:1.6
 %if %{gcj_support}
@@ -125,3 +125,4 @@ cp -pr api/*  %{buildroot}%{_javadocdir}/%{name}-%{version}
 
 * Mon Sep 18 2006 David Walluck <walluck@mandriva.org> 0:1.1-1mdv2007.0
 - release
+
