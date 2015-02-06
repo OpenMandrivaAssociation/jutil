@@ -3,7 +3,7 @@
 
 Name:           jutil
 Version:        1.4
-Release:        1
+Release:        2
 Epoch:          0
 Summary:        Parameterized collections library for Java
 License:        GPL
