@@ -8,7 +8,7 @@ Epoch:          0
 Summary:        Parameterized collections library for Java
 License:        GPL
 Group:          Development/Java
-URL:            http://cscott.net/Projects/JUtil
+URL:            https://cscott.net/Projects/JUtil
 Source0:        http://cscott.net/Projects/JUtil/jutil-latest/%{name}-%{version}.tar.gz
 BuildRequires:  ant
 BuildRequires:  java-rpmbuild >= 0:1.6
